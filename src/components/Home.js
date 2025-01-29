@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Home.css';
 
 const Home = () => {
+  const [currentRole, setCurrentRole] = useState(0);
+  const roles = ['Full Stack Developer', 'Salesforce Developer'];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentRole((prev) => (prev + 1) % roles.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="home">
       <nav className="navbar">
@@ -16,9 +27,14 @@ const Home = () => {
       </nav>
 
       <div className="hero-section">
+        <div className="pentagon-container">
+          <div className="pentagon">
+            <img src="your-profile-image.jpg" alt="Profile" className="profile-image" />
+          </div>
+        </div>
         <div className="hero-content">
           <h1 className="hero-title">Hi, I'm <span className="highlight">Your Name</span></h1>
-          <h2 className="hero-subtitle">Full Stack Developer</h2>
+          <h2 className="hero-subtitle typing-text">{roles[currentRole]}</h2>
           <p className="hero-description">
             I build exceptional digital experiences that make life easier and more enjoyable
           </p>

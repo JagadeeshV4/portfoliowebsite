@@ -6,37 +6,38 @@ const Skills = () => {
     {
       title: 'Frontend Development',
       skills: [
-        { name: 'HTML/CSS', level: 90 },
-        { name: 'JavaScript', level: 85 },
-        { name: 'React', level: 80 },
-        { name: 'TypeScript', level: 75 },
+        { name: 'HTML5', icon: 'fab fa-html5' },
+        { name: 'CSS3', icon: 'fab fa-css3-alt' },
+        { name: 'JavaScript', icon: 'fab fa-js' },
+        { name: 'React', icon: 'fab fa-react' },
+        { name: 'TypeScript', icon: 'devicon-typescript-plain' },
       ],
     },
     {
       title: 'Backend Development',
       skills: [
-        { name: 'Node.js', level: 85 },
-        { name: 'Python', level: 80 },
-        { name: 'SQL', level: 75 },
-        { name: 'MongoDB', level: 70 },
+        { name: 'Node.js', icon: 'fab fa-node-js' },
+        { name: 'Python', icon: 'fab fa-python' },
+        { name: 'Java', icon: 'fab fa-java' },
+        { name: 'MongoDB', icon: 'devicon-mongodb-plain' },
       ],
     },
     {
       title: 'Tools & Technologies',
       skills: [
-        { name: 'Git', level: 85 },
-        { name: 'Docker', level: 70 },
-        { name: 'AWS', level: 65 },
-        { name: 'CI/CD', level: 75 },
+        { name: 'Git', icon: 'fab fa-git-alt' },
+        { name: 'Docker', icon: 'fab fa-docker' },
+        { name: 'AWS', icon: 'fab fa-aws' },
+        { name: 'Salesforce', icon: 'fab fa-salesforce' },
       ],
     },
     {
-      title: 'Soft Skills',
+      title: 'Other Skills',
       skills: [
-        { name: 'Problem Solving', level: 90 },
-        { name: 'Communication', level: 85 },
-        { name: 'Team Work', level: 90 },
-        { name: 'Time Management', level: 85 },
+        { name: 'VS Code', icon: 'devicon-vscode-plain' },
+        { name: 'NPM', icon: 'fab fa-npm' },
+        { name: 'Linux', icon: 'fab fa-linux' },
+        { name: 'Agile', icon: 'fas fa-sync-alt' },
       ],
     },
   ];
@@ -53,16 +54,8 @@ const Skills = () => {
               <div className="skills-grid">
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex} className="skill-item">
-                    <div className="skill-info">
-                      <span className="skill-name">{skill.name}</span>
-                      <span className="skill-percentage">{skill.level}%</span>
-                    </div>
-                    <div className="skill-bar">
-                      <div 
-                        className="skill-progress"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
+                    <i className={`skill-icon ${skill.icon}`}></i>
+                    <span className="skill-name">{skill.name}</span>
                   </div>
                 ))}
               </div>
@@ -73,7 +66,6 @@ const Skills = () => {
         <div className="certifications">
           <h3 className="category-title">Certifications</h3>
           <div className="certification-list">
-            {/* Add your certifications here */}
             <div className="certification-item">
               <i className="fas fa-certificate"></i>
               <div className="certification-info">
@@ -81,7 +73,6 @@ const Skills = () => {
                 <p>Amazon Web Services</p>
               </div>
             </div>
-            {/* Add more certifications as needed */}
           </div>
         </div>
       </div>

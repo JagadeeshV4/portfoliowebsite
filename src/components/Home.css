@@ -43,14 +43,54 @@
 .hero-section {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   min-height: 100vh;
-  padding: 0 2rem;
-  text-align: center;
+  padding: 0 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.pentagon-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.pentagon {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  background: linear-gradient(45deg, #61dafb, #4ac8e9);
+  animation: rotate 20s linear infinite;
+}
+
+.profile-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .hero-content {
-  max-width: 800px;
+  flex: 1;
+  text-align: left;
+  padding-left: 4rem;
 }
 
 .hero-title {
@@ -66,18 +106,36 @@
   font-size: 2rem;
   margin-bottom: 1.5rem;
   color: #cccccc;
+  min-height: 2.5rem;
+}
+
+.typing-text {
+  border-right: 3px solid #61dafb;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #61dafb }
 }
 
 .hero-description {
   font-size: 1.2rem;
   margin-bottom: 2rem;
   color: #a0a0a0;
+  max-width: 600px;
 }
 
 .cta-buttons {
   display: flex;
   gap: 1rem;
-  justify-content: center;
 }
 
 .cta-primary, .cta-secondary {
@@ -104,6 +162,33 @@
   transform: translateY(-2px);
 }
 
+@media (max-width: 1024px) {
+  .hero-section {
+    flex-direction: column-reverse;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .hero-content {
+    padding-left: 0;
+    margin-bottom: 3rem;
+  }
+
+  .pentagon {
+    width: 250px;
+    height: 250px;
+  }
+
+  .profile-image {
+    width: 230px;
+    height: 230px;
+  }
+
+  .cta-buttons {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar {
     padding: 1rem 2rem;
@@ -123,5 +208,15 @@
 
   .cta-buttons {
     flex-direction: column;
+  }
+
+  .pentagon {
+    width: 200px;
+    height: 200px;
+  }
+
+  .profile-image {
+    width: 180px;
+    height: 180px;
   }
 } 
